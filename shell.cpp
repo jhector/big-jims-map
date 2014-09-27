@@ -1,3 +1,5 @@
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <cstdio>
 #include <cstdlib>
 #include <unistd.h>
@@ -52,6 +54,22 @@ void handle_request(char *req, char *host)
     if (strcmp(iter, "HTTP/1.1"))
         throw "Unknown protocol\n";
 
+    if (strstr(file, "flag"))
+        throw "Sorry, can't read that\n";
+
+    int32_t fd = open(file, O_RDONLY);
+    if (fd < 0)
+        throw "Can't open file\n";
+
+    char content[128] = {0};
+    uint32_t size = 0;
+
+    while ((size = read(fd, content, sizeof(content)-1)) > 0) {
+        write(1, content, size);
+        bzero(content, sizeof(content));
+    }
+
+    close(fd);
 }
 
 int32_t main(int32_t argc, char *argv[])
