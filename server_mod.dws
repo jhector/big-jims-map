@@ -1,8 +1,8 @@
 section_type: ".eh_frame"
 #
-section_addr: 0x401050
-eh_hdr_addr: 0x400ff8
-except_table_addr: 0x401234
+section_addr: 0x400f90
+eh_hdr_addr: 0x400f38
+except_table_addr: 0x401174
 eh_hdr_table_enc: DW_EH_PE_sdata4, DW_EH_PE_datarel
 begin CIE
 index: 0
@@ -38,7 +38,7 @@ return_addr_rule: 16
 fde_ptr_enc: DW_EH_PE_sdata4, DW_EH_PE_pcrel
 fde_lsda_ptr_enc: DW_EH_PE_udata4
 personality_ptr_enc: DW_EH_PE_udata4
-personality: 0x400a40
+personality: 0x4009b0
 begin INSTRUCTIONS
 DW_CFA_def_cfa r7 8 
 DW_CFA_offset r16 1
@@ -48,8 +48,8 @@ end CIE
 # begin FDE
 # index: 0
 # cie_index: 1
-# initial_location: 0x400930
-# address_range: 0x150
+# initial_location: 0x4008c0
+# address_range: 0x130
 # begin INSTRUCTIONS
 # DW_CFA_def_cfa_offset 16
 # DW_CFA_advance_loc 6
@@ -72,34 +72,19 @@ end CIE
 begin FDE
 index: 0
 cie_index: 2
-initial_location: 0x400a80
-address_range: 0xd5
+initial_location: 0x4009f0
+address_range: 0xd0
 lsda_idx: 0x0
 begin INSTRUCTIONS
-#DW_CFA_advance_loc 2
-#DW_CFA_def_cfa_offset 16
-#DW_CFA_offset r13 2
-#DW_CFA_advance_loc 2
-#DW_CFA_def_cfa_offset 24
-#DW_CFA_offset r12 3
-#DW_CFA_advance_loc 6
-#DW_CFA_def_cfa_offset 32
-#DW_CFA_offset r6 4
 #DW_CFA_advance_loc 1
-#DW_CFA_def_cfa_offset 40
-#DW_CFA_offset r3 5
-#DW_CFA_advance_loc 9
-#DW_CFA_def_cfa_offset 48
-#DW_CFA_advance_loc1 96
+#DW_CFA_def_cfa_offset 16
+#DW_CFA_offset r3 2
+#DW_CFA_advance_loc 19
+#DW_CFA_def_cfa_offset 288
+#DW_CFA_advance_loc1 144
 #DW_CFA_remember_state
-#DW_CFA_def_cfa_offset 40
-#DW_CFA_advance_loc 1
-#DW_CFA_def_cfa_offset 32
-#DW_CFA_advance_loc 1
-#DW_CFA_def_cfa_offset 24
-#DW_CFA_advance_loc 2
 #DW_CFA_def_cfa_offset 16
-#DW_CFA_advance_loc 2
+#DW_CFA_advance_loc 1
 #DW_CFA_def_cfa_offset 8
 #DW_CFA_advance_loc 1
 #DW_CFA_restore_state
@@ -109,7 +94,7 @@ end FDE
 # begin FDE
 # index: 2
 # cie_index: 0
-# initial_location: 0x400b55
+# initial_location: 0x400ac0
 # address_range: 0x2a
 # begin INSTRUCTIONS
 # end INSTRUCTIONS
@@ -118,7 +103,7 @@ end FDE
 # begin FDE
 # index: 3
 # cie_index: 1
-# initial_location: 0x400c50
+# initial_location: 0x400bc0
 # address_range: 0xb
 # begin INSTRUCTIONS
 # DW_CFA_advance_loc 4
@@ -129,7 +114,7 @@ end FDE
 # begin FDE
 # index: 4
 # cie_index: 1
-# initial_location: 0x400c60
+# initial_location: 0x400bd0
 # address_range: 0x1a
 # begin INSTRUCTIONS
 # DW_CFA_advance_loc 1
@@ -139,47 +124,64 @@ end FDE
 # DW_CFA_def_cfa_offset 8
 # end INSTRUCTIONS
 # end FDE
-# #function guess: read_until(char, unsigned int)
+# #function guess: read_until(char, char*, unsigned int)
 # begin FDE
 # index: 5
 # cie_index: 1
-# initial_location: 0x400c80
+# initial_location: 0x400bf0
 # address_range: 0x76
 # begin INSTRUCTIONS
 # DW_CFA_advance_loc 2
 # DW_CFA_def_cfa_offset 16
-# DW_CFA_offset r13 2
+# DW_CFA_offset r14 2
 # DW_CFA_advance_loc 2
 # DW_CFA_def_cfa_offset 24
-# DW_CFA_offset r12 3
-# DW_CFA_advance_loc 3
+# DW_CFA_offset r13 3
+# DW_CFA_advance_loc 5
 # DW_CFA_def_cfa_offset 32
-# DW_CFA_offset r6 4
+# DW_CFA_offset r12 4
 # DW_CFA_advance_loc 1
 # DW_CFA_def_cfa_offset 40
-# DW_CFA_offset r3 5
-# DW_CFA_advance_loc 15
+# DW_CFA_offset r6 5
+# DW_CFA_advance_loc 4
+# DW_CFA_def_cfa_offset 48
+# DW_CFA_offset r3 6
+# DW_CFA_advance_loc 13
 # DW_CFA_def_cfa_offset 64
-# DW_CFA_advance_loc 55
+# DW_CFA_advance_loc 37
 # DW_CFA_remember_state
+# DW_CFA_def_cfa_offset 48
+# DW_CFA_advance_loc 4
 # DW_CFA_def_cfa_offset 40
 # DW_CFA_advance_loc 1
 # DW_CFA_def_cfa_offset 32
-# DW_CFA_advance_loc 1
+# DW_CFA_advance_loc 2
 # DW_CFA_def_cfa_offset 24
 # DW_CFA_advance_loc 2
 # DW_CFA_def_cfa_offset 16
 # DW_CFA_advance_loc 2
 # DW_CFA_def_cfa_offset 8
-# DW_CFA_advance_loc 4
+# DW_CFA_advance_loc 5
 # DW_CFA_restore_state
+# DW_CFA_advance_loc 27
+# DW_CFA_def_cfa_offset 48
+# DW_CFA_advance_loc 3
+# DW_CFA_def_cfa_offset 40
+# DW_CFA_advance_loc 1
+# DW_CFA_def_cfa_offset 32
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 24
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 16
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 8
 # end INSTRUCTIONS
 # end FDE
 #function guess: handle_request(char*, char*)
 begin FDE
-index: 1 
+index: 1
 cie_index: 1
-initial_location: 0x400d00
+initial_location: 0x400c70
 address_range: 0x1b0
 begin INSTRUCTIONS
 DW_CFA_advance_loc 2
@@ -210,11 +212,11 @@ DW_OP_breg7 -48
 end EXPRESSION
 DW_CFA_val_expression r13
 begin EXPRESSION
-DW_OP_constu 0x4011d0
+DW_OP_constu 0x401370
 end EXPRESSION
 DW_CFA_val_expression r3
 begin EXPRESSION
-DW_OP_constu 0x4011de
+DW_OP_constu 0x40137e
 end EXPRESSION
 DW_CFA_val_expression r12
 begin EXPRESSION
@@ -223,7 +225,7 @@ end EXPRESSION
 DW_CFA_val_expression r6
 begin EXPRESSION
 #DW_OP_constu 0x601218 #the address where we will find the address of the linkmap. This is 8 more than the value of PLTGOT in .dynamic
-DW_OP_constu 0x601488 #the address where we will find the address of the linkmap. This is 8 more than the value of PLTGOT in .dynamic
+DW_OP_constu 0x6013c8 #the address where we will find the address of the linkmap. This is 8 more than the value of PLTGOT in .dynamic
 DW_OP_deref #dereference above
 #now on the top of the stack we have the address of the beginning of
 #the link map. The important field in link_map for the moment is the
@@ -398,7 +400,7 @@ DW_OP_plus
 #8. text base address
 #We have stored the address of the name we are trying to match in
 #our inserted "shellcode" data
-DW_OP_constu 0x4011f6 #address of our symbol name
+DW_OP_constu 0x401396 #address of our symbol name
 #begin strcmp
 DW_OP_over
 DW_OP_deref_size 1
@@ -574,7 +576,7 @@ end FDE
 # begin FDE
 # index: 7
 # cie_index: 1
-# initial_location: 0x400eb0
+# initial_location: 0x400e20
 # address_range: 0x65
 # begin INSTRUCTIONS
 # DW_CFA_advance_loc 2
@@ -617,7 +619,7 @@ end FDE
 # begin FDE
 # index: 8
 # cie_index: 1
-# initial_location: 0x400f20
+# initial_location: 0x400e90
 # address_range: 0x2
 # begin INSTRUCTIONS
 # end INSTRUCTIONS
@@ -628,24 +630,24 @@ lpstart: 0x0
 typeinfo_enc: DW_EH_PE_udata4
 #call site 0
 begin CALL_SITE
-position: 0x2d
-length: 0x33
+position: 0x5b
+length: 0x2e
 landing_pad: 0x0
 has_action: false
 end CALL_SITE
 #call site 1
 begin CALL_SITE
-position: 0x69
+position: 0x96
 length: 0x5
-# landing_pad: 0xb8
-landing_pad: 0x7a
+# landing_pad: 0xa6
+landing_pad: 0xa5
 has_action: true
 first_action: 0
 end CALL_SITE
 #call site 2
 begin CALL_SITE
-position: 0x9f
-length: 0x27
+position: 0xaf
+length: 0x1a
 landing_pad: 0x0
 has_action: false
 end CALL_SITE
@@ -655,5 +657,5 @@ type_idx: 0
 next: none
 end ACTION
 #type entry 0
-typeinfo: 0x601560
+typeinfo: 0x601480
 end LSDA
