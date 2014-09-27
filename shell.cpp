@@ -5,6 +5,12 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdint.h>
+#include <signal.h>
+
+void handler(int sig)
+{
+    exit(0);
+}
 
 void error(const char *msg)
 {
@@ -78,6 +84,9 @@ int32_t main(int32_t argc, char *argv[])
     char *request = NULL;
     char *host = NULL;
     char *tmp = NULL;
+
+    signal(SIGALRM, handler);
+    alarm(30);
 
     request = read_until('\n', 128);
     if (!request) {
