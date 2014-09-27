@@ -29,10 +29,16 @@ char* read_until(char term, uint32_t max)
     return content;
 }
 
+void handle_request(char *req, char *host)
+{
+}
+
 int32_t main(int32_t argc, char *argv[])
 {
     const char *err = NULL;
     char *request = NULL;
+    char *host = NULL;
+    char *tmp = NULL;
 
     request = read_until('\n', 128);
     if (!request) {
@@ -40,10 +46,27 @@ int32_t main(int32_t argc, char *argv[])
         goto fail;
     }
 
+    host = read_until('\n', 128);
+    if (!host) {
+        err = "Couldn't read host\n";
+        goto fail;
+    }
+
+    tmp = read_until('\n', 10);
+
+    try {
+        handle_request(request, host);
+    } catch (const char *e) {
+        err = e;
+        goto fail;
+    }
+
     return 0;
 
 fail:
     free(request);
+    free(host);
+    free(tmp);
 
     error(err);
     return 1;
