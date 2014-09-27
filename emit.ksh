@@ -1,3 +1,3 @@
 #!/usr/bin/env katana
-$e=load "shell"
-dwarfscript emit $e "shell.dws"
+$e=load "server"
+dwarfscript emit $e "server.dws"

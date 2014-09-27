@@ -1,7 +1,7 @@
-SRCS = shell.cpp
-CFLAGS = -O2
+SRCS = server.cpp
+CFLAGS = -O2 -L ./lib -Xlinker "-rpath=./lib/"
 PROT =
-OUT = shell
+OUT = server
 CC = g++
 
 all:
