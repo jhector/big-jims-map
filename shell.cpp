@@ -31,6 +31,27 @@ char* read_until(char term, uint32_t max)
 
 void handle_request(char *req, char *host)
 {
+    char *iter = req;
+    char *file = NULL;
+
+    if (strcmp(host, "Host: localhost"))
+        throw "Invalid host\n";
+
+    if (strncmp("GET ", iter, 4))
+        throw "Method not supported\n";
+
+    iter += 4;
+    file = iter;
+
+    if (!(iter = strchr(file, ' ')))
+        throw "Invalid request\n";
+
+    *iter = 0x0;
+    iter++;
+
+    if (strcmp(iter, "HTTP/1.1"))
+        throw "Unknown protocol\n";
+
 }
 
 int32_t main(int32_t argc, char *argv[])
