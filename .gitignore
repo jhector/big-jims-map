@@ -1,5 +1,4 @@
 *.dws
 peda-session-*
 .gdb_history
-shell
-shell_mod
+server
