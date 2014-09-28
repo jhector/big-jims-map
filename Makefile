@@ -1,5 +1,5 @@
 SRCS = server.cpp
-CFLAGS = -O2 -L ./lib -Xlinker "-rpath=./lib/"
+CFLAGS = -O2
 PROT =
 OUT = server
 CC = g++
