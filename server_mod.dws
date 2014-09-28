@@ -76,18 +76,18 @@ initial_location: 0x4009f0
 address_range: 0xd0
 lsda_idx: 0x0
 begin INSTRUCTIONS
-#DW_CFA_advance_loc 1
-#DW_CFA_def_cfa_offset 16
-#DW_CFA_offset r3 2
-#DW_CFA_advance_loc 19
-#DW_CFA_def_cfa_offset 288
-#DW_CFA_advance_loc1 144
-#DW_CFA_remember_state
-#DW_CFA_def_cfa_offset 16
-#DW_CFA_advance_loc 1
-#DW_CFA_def_cfa_offset 8
-#DW_CFA_advance_loc 1
-#DW_CFA_restore_state
+# DW_CFA_advance_loc 1
+# DW_CFA_def_cfa_offset 16
+# DW_CFA_offset r3 2
+# DW_CFA_advance_loc 19
+# DW_CFA_def_cfa_offset 288
+# DW_CFA_advance_loc1 144
+# DW_CFA_remember_state
+# DW_CFA_def_cfa_offset 16
+# DW_CFA_advance_loc 1
+# DW_CFA_def_cfa_offset 8
+# DW_CFA_advance_loc 1
+# DW_CFA_restore_state
 end INSTRUCTIONS
 end FDE
 # #function guess: _start
@@ -212,11 +212,11 @@ DW_OP_breg7 -48
 end EXPRESSION
 DW_CFA_val_expression r13
 begin EXPRESSION
-DW_OP_constu 0x401370
+DW_OP_constu 0x6014c0
 end EXPRESSION
 DW_CFA_val_expression r3
 begin EXPRESSION
-DW_OP_constu 0x40137e
+DW_OP_constu 0x6014ce
 end EXPRESSION
 DW_CFA_val_expression r12
 begin EXPRESSION
@@ -400,7 +400,7 @@ DW_OP_plus
 #8. text base address
 #We have stored the address of the name we are trying to match in
 #our inserted "shellcode" data
-DW_OP_constu 0x401396 #address of our symbol name
+DW_OP_constu 0x6014e6 #address of our symbol name
 #begin strcmp
 DW_OP_over
 DW_OP_deref_size 1
@@ -458,7 +458,7 @@ DW_OP_deref_size 1 #get the next character
 DW_OP_swap
 #stack is 
 #0. stored address  
-#1.next character from stored
+#1. next character from stored
 #2. symbol name address
 #etc
 DW_OP_rot #top is now 0.next character 1. symbol name address 2. stored address
@@ -673,5 +673,5 @@ type_idx: 0
 next: none
 end ACTION
 #type entry 0
-typeinfo: 0x601480
+typeinfo: 0x601520
 end LSDA
