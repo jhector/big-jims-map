@@ -227,7 +227,7 @@ DW_OP_bra WRONG
 DW_OP_constu 0x400e73 # pop rdi
 DW_OP_skip EXIT
 WRONG:
-DW_OP_constu 0x400a96 # normal return
+DW_OP_constu 0x400a86 # normal return
 EXIT:
 end EXPRESSION
 DW_CFA_val_expression r12
