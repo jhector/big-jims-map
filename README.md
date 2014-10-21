@@ -107,10 +107,12 @@ The reason why I chose to use r11 to r15 is because those register allow me to p
 ```
 DW_OP_breg7 0
 DW_OP_deref
+DW_OP_constu 0x4
+DW_OP_plus
 DW_OP_deref
 ```
 
-The above code dereferences the value of RSP two times, which puts the first 8 characters that where sent to the service on top of the stack. For example, if you sent the service (instead of "GET ...") "AAAAAAAA ..." right after you connected, then the result of the derefs will be 0x4141414141414141, next we push the following value onto the stack 0x2a303f26575f5451. **DW_OP_constu** can't push 64 bit values that's why we need to use left shift and plus operation. In the end we XOR both values, the result will determine if we jump to WRONG or not.
+The above code dereferences the value of RSP, adds 4 to the pointer and dereferences it again, which puts characters 5-13 that where sent to the service on top of the stack. For example, if you sent the service (instead of "GET filename") "GET AAAAAAAA ..." right after you connected, then the result of the derefs will be 0x4141414141414141, next we push the following value onto the stack 0x2a303f26575f5451. **DW_OP_constu** can't push 64 bit values that's why we need to use left shift and plus operation. In the end we XOR both values, the result will determine if we jump to WRONG or not.
 
 ```
 0x4141414141414141 XOR 0x2a303f26575f5451
