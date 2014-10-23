@@ -8,7 +8,7 @@ Every binary that is compiled with gcc and that supports exception handling, com
 
 If you want to know more about it, check out the paper *Exploiting the hard-working DWARF: Trojan and Exploit Techniques With No Native Executable Code* by James Oakley and Sergey Bratus, you can find it [here](https://www.usenix.org/legacy/event/woot11/tech/final_files/Oakley.pdf).
 
-## Write-up
+## Little explanation
 Before I go into the details, let me explain how the backdoor code roughly works.
 
 + DWARF code resolves the address of **execv()** (Thanks to James and Sergey)
